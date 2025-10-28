@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
-
+import darkEdition from "./assets/dark-edition.png";
+import originalEdition from "./assets/original-edition.png";
 export default function BVDWebsite() {
   const [cart, setCart] = useState([]);
   const products = [
-    {
-      id: 'dark-tee',
-      title: 'BVD — Dark Edition Tee',
-      price: 25000,
-      desc: 'Black tee with broken-heart + cross print. "Light lives in my darkness."',
-      img: '/assets/dark-tee.jpg' // replace with real image
-    },
-    {
-      id: 'original-tee',
-      title: 'BVD Original Tee',
-      price: 22000,
-      desc: 'Minimal BVD chest logo + AM NOT BAD JUST BVD back print.',
-      img: '/assets/original-tee.jpg'
-    },
-    {
-      id: 'bvd-cap',
-      title: 'BVD Cap',
-      price: 12000,
-      desc: 'Black cap with white BVD embroidery and side heart stitch.',
-      img: '/assets/bvd-cap.jpg'
-    }
-  ];
+  {
+    id: 'dark-edition',
+    title: 'BVD - DARK EDITION TEE AND CAP',
+    price: 25000,
+    desc: 'Bold black tee and cap set featuring the cracked heart + cross print. "Light Lives In My Darkness." Limited drop.',
+    img: darkEdition
+  },
+  {
+    id: 'original-edition',
+    title: 'BVD ORIGINAL TEE AND CAP',
+    price: 20000,
+    desc: 'Classic BVD logo tee and cap set. “AM NOT BAD JUST BVD.” Signature 17 & Dangerous collection.',
+    img: originalEdition
+  },
+];
 
   function addToCart(product) {
     setCart(prev => [...prev, product]);
@@ -102,9 +96,8 @@ export default function BVDWebsite() {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map(p => (
             <div key={p.id} className="bg-white/5 rounded-lg p-5 flex flex-col">
-              <div className="h-56 bg-black/60 rounded flex items-center justify-center">
-                {/* Replace with actual product image */}
-                <div className="text-gray-300">Image: {p.title}</div>
+              <div className="h-56 bg-black/60 rounded overflow-hidden flex items-center justify-center">
+                <img src={p.img} alt={p.title} className="object-cover w-full h-full" />
               </div>
               <div className="mt-4 flex-1">
                 <h3 className="font-semibold">{p.title}</h3>
@@ -239,8 +232,8 @@ export default function BVDWebsite() {
             <p className="text-gray-400 mt-2">Business inquiries, bookings, and press.</p>
 
             <div className="mt-4 bg-white/5 p-4 rounded">
-              <p className="text-xs">Email: bookings@bvdworld.com</p>
-              <p className="text-xs mt-1">WhatsApp: +234 000 000 0000 (replace with your number)</p>
+              <p className="text-xs">Email: sohbadmusics@gmail.com</p>
+              <p className="text-xs mt-1">WhatsApp: 08074317573</p>
             </div>
           </div>
 
@@ -253,6 +246,16 @@ export default function BVDWebsite() {
           </div>
         </div>
       </section>
+      {/* SOCIAL LINKS */}
+<section id="socials" className="max-w-6xl mx-auto px-6 py-10 border-t border-white/5 text-center">
+  <h2 className="text-2xl font-bold mb-4">Connect with SOHBVD</h2>
+  <div className="flex flex-wrap justify-center gap-4 text-sm">
+    <a href="https://share.google/fwG7hBspKyfU7O8ol" target="_blank" className="px-4 py-2 bg-white/5 rounded hover:bg-white/10">Spotify</a>
+    <a href="https://www.instagram.com/sohbvd_684/" target="_blank" className="px-4 py-2 bg-white/5 rounded hover:bg-white/10">Instagram</a>
+    <a href="https://m.youtube.com/@SOHBVD/playlists" target="_blank" className="px-4 py-2 bg-white/5 rounded hover:bg-white/10">YouTube</a>
+    <a href="mailto:sohbadmusics@gmail.com" className="px-4 py-2 bg-white/5 rounded hover:bg-white/10">Email</a>
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/5 mt-8 py-6">
