@@ -2,6 +2,7 @@
 // src/BVDWebsite.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 import darkEdition from "./assets/darkEdition.png";
 import originalEdition from "./assets/originalEdition.png";
 
@@ -20,6 +21,13 @@ import originalEdition from "./assets/originalEdition.png";
 export default function BVDWebsite() {
   const [cart, setCart] = useState([]);
   const [loadingPaystack, setLoadingPaystack] = useState(false);
+  // Google reCAPTCHA
+  const [verified, setVerified] = useState(false);
+
+  function handleCaptcha(value) {
+    console.log("Captcha value:", value);
+    setVerified(true);
+  }
 
   // Products (same as live site)
   const products = [
@@ -359,6 +367,12 @@ export default function BVDWebsite() {
               <input name="email" className="w-full bg-white/5 rounded p-2 text-sm" placeholder="Email" type="email" required />
               <input name="link" className="w-full bg-white/5 rounded p-2 text-sm" placeholder="Link to track (YouTube / Audiomack)" required />
               <button type="submit" className="w-full px-4 py-2 bg-white text-black rounded text-sm">Submit Demo</button>
+              <div className="mt-3 flex justify-center">
+  <ReCAPTCHA
+    sitekey="6LdwV_srAAAAAE2SIvRQ_AFfC3EtnmI-GXvs_HqN"
+    onChange={handleCaptcha}
+  />
+</div>
             </form>
           </div>
 
@@ -429,6 +443,13 @@ export default function BVDWebsite() {
             >
               <input name="email" className="w-full bg-white/5 rounded p-2 text-sm" placeholder="Email address" type="email" required />
               <button type="submit" className="w-full mt-3 px-4 py-2 bg-red-600 rounded text-sm">Subscribe</button>
+              <div className="mt-3 flex justify-center">
+    <ReCAPTCHA
+      sitekey="6LdwV_srAAAAAE2SIvRQ_AFfC3EtnmI-GXvs_HqN"
+      onChange={handleCaptcha}
+    />
+  </div>
+
             </form>
           </div>
         </div>
